@@ -1,0 +1,20 @@
+.content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.contentbody{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+.side{
+    flex-basis: 20vw;
+
+    
+}
+.dashboard{
+    flex-basis: 80vw;
+
+}

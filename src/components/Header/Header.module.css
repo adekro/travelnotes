@@ -1,0 +1,10 @@
+.header{
+   height: 8vh;
+   max-height: 100px;
+   min-height: 75px;
+}
+.header img{
+    width: 15vh;
+    max-width: 70px;
+    min-width: 40px;
+}

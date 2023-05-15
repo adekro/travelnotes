@@ -1,19 +1,21 @@
 import classes from "./Layout.module.css";
-const Layout = () =>{
+import Header from "../Header/Header";
+import Side from "../Side/Side";
+import Dashboard from "../Dashboard/Dashboard";
 
-
-    return (
+const Layout = () => {
+  return (
     <div className={classes.content}>
-
-        <header>header</header>
-
-        <div className={classes.contentbody}>
-            <div className={classes.side}>side</div>
-            <div className={classes.dashboard}>content</div>
+      <Header />
+      <div className={classes.contentbody}>
+        <div className={classes.side}>
+          <Side />
         </div>
+        <div className={classes.dashboard}>
+          <Dashboard />
+        </div>
+      </div>
     </div>
-
-    );
-
-}
+  );
+};
 export default Layout;
