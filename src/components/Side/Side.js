@@ -1,6 +1,14 @@
+import Button from "../Button/Button";
 import Card from "../Card/Card";
 import classes from "./Side.module.css";
 const Side = () => {
-  return <Card>side</Card>;
+  const onClickHandler = () => {
+    alert("click");
+  };
+  return (
+    <Card>
+      <Button onClick={onClickHandler}>New</Button>
+    </Card>
+  );
 };
 export default Side;
