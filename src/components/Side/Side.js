@@ -1,9 +1,9 @@
 import Button from "../Button/Button";
 import Card from "../Card/Card";
 import classes from "./Side.module.css";
-const Side = () => {
+const Side = ({ onNew }) => {
   const onClickHandler = () => {
-    alert("click");
+    onNew();
   };
   return (
     <Card>
