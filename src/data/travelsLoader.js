@@ -1,7 +1,27 @@
-const monkTravel = [
+export default (() => {
+  const localStorageKeyName = "travels";
+  const getItems = () => {
+    return JSON.parse(localStorage.getItem(localStorageKeyName) ?? {});
+  };
+  const storeItems = (travels) => {
+    localStorage.setItem(localStorageKeyName, JSON.stringify(travels));
+  };
+  const init = () => {
+    storeItems(mockData);
+  };
+
+  return {
+    getItems,
+    storeItems,
+    init,
+  };
+})();
+
+const mockData = [
   {
     nation: "France",
     name: "Road to Normandy",
+    iso: "fr",
     stages: [
       {
         destination: "Lione",

@@ -1,0 +1,11 @@
+.side{
+    display: flex;
+    flex-direction: column;
+}
+.flag{
+    margin-right: 5px;
+}
+.button{
+    margin:5px;
+}
+
