@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import { Button } from "adekroui";
 import Card from "../Card/Card";
 import classes from "./Side.module.css";
 const Side = ({ onNew, travels }) => {

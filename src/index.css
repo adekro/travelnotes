@@ -1,3 +1,15 @@
+:root {
+  --primary-color: rgb(3, 61, 170) !important;
+  --primary-text-color: #f1f1f1 !important;
+  --secondary-color: rgb(155, 155, 155) !important;
+  --secondary-text-color: rgb(0, 102, 0) !important;
+  --activate-color: lightgreen !important;
+  --background-color: #f1f1f1 !important;
+  --box-shadow: #c2c2c2 !important;
+  --color: brown !important;
+  --input-active: lightgreen !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
