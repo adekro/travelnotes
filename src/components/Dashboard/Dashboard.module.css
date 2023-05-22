@@ -1,3 +1,20 @@
 .dashboard{
 
 }
+.dashboardhead{
+
+}
+.content{display: flex; justify-content: center;flex-wrap: wrap;}
+.loacationcard{
+    background-color: white;
+    box-shadow: 5px 5px 5px #ccc;
+    width: 30%;
+    min-width: 150px;
+    max-width: 300px;
+    cursor: pointer;
+}
+.loacationcardimg{
+    width: 100%;
+    border-radius: 7px;
+    
+}

@@ -33,21 +33,29 @@ const mockData = [
             coordinates: "45.76128646154001, 4.8266270717433395",
             name: "Fontaine Saint Jean",
             description: "",
+            cover:
+              "https://www.fulltravel.it/wp-content/uploads/2016/10/Lione-festival-delle-luci.jpg",
           },
           {
             coordinates: "45.760229045997, 4.826500765806566",
             name: "Place de Fourvière",
             description: "salire dalla funicolare",
+            cover:
+              "https://www.fulltravel.it/wp-content/uploads/2016/10/Lione-festival-delle-luci.jpg",
           },
           {
             coordinates: "45.767680739052324, 4.834742880208",
             name: "Place des Terreaux",
             description: "",
+            cover:
+              "https://www.fulltravel.it/wp-content/uploads/2016/10/Lione-festival-delle-luci.jpg",
           },
           {
-            coordinates: "45.75821311333089, 4.83197687406149",
+            coordinates: "45.75821311333089,4.83197687406149",
             name: "Place Bellecour",
             description: "",
+            cover:
+              "https://www.fulltravel.it/wp-content/uploads/2016/10/Lione-festival-delle-luci.jpg",
           },
         ],
         food: [
