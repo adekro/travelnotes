@@ -5,9 +5,12 @@ import Side from "../Side/Side";
 import Dashboard from "../Dashboard/Dashboard";
 import { MessageModal } from "adekroui";
 import useTravels from "../../hooks/useTravels";
+import travelsLoader from "../../data/travelsLoader";
 
 const Layout = () => {
   const [isNew, setIsNew] = useState(false);
+  const [selTravel, setSelTravel] = useState();
+  const [travel, setTravel] = useState();
 
   const { travels } = useTravels();
 
@@ -17,15 +20,23 @@ const Layout = () => {
   const closeModal = () => {
     setIsNew(false);
   };
+  const selecthandler = (istravel) => {
+    setSelTravel(istravel);
+    const data = travelsLoader.getItems();
+    const ctravel = {
+      ...data.find((travel) => travel.id === istravel),
+    };
+    setTravel(ctravel);
+  };
   return (
     <div className={classes.content}>
       <Header />
       <div className={classes.contentbody}>
         <div className={classes.side}>
-          <Side onNew={newhandler} travels={travels} />
+          <Side onNew={newhandler} travels={travels} onSelect={selecthandler} />
         </div>
         <div className={classes.dashboard}>
-          <Dashboard />
+          <Dashboard travel={travel} />
         </div>
       </div>
       {isNew && (

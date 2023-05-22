@@ -19,12 +19,15 @@ export default (() => {
 
 const mockData = [
   {
+    id: "1",
     nation: "France",
     name: "Road to Normandy",
     iso: "fr",
     stages: [
       {
         destination: "Lione",
+        cover:
+          "https://www.fulltravel.it/wp-content/uploads/2016/10/Lione-festival-delle-luci.jpg",
         pointsofinterest: [
           {
             coordinates: "45.76128646154001, 4.8266270717433395",
