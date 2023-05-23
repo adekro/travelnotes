@@ -335,6 +335,54 @@ const mockData = [
           },
         ],
       },
+      {
+        destination: "Utah Beach",
+        cover:
+          "https://www.google.it/maps/place/Utah+Beach/@49.4230363,-1.1818896,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPym1Vk-iW2JZPl_wOSgqbA8s6ew6_pwAUXWO5Y!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPym1Vk-iW2JZPl_wOSgqbA8s6ew6_pwAUXWO5Y%3Dw111-h86-k-no!7i4080!8i3160!4m16!1m8!3m7!1s0x480b77a1c5df93c5:0x40c14484fb96840!2s50480+Sainte-Marie-du-Mont,+Francia!3b1!8m2!3d49.379026!4d-1.225989!16zL20vMGRjOWtf!3m6!1s0x480b76ebe89d3e27:0xe53e63a911e7f4e2!8m2!3d49.4230363!4d-1.1818896!10e5!16zL20vMDMxOGdt#",
+        pointsofinterest: [
+          {
+            coordinates: "49.42501902299419, -1.1820356973766166",
+            name: "Utah Beach D-Day",
+            description: "",
+            cover:
+              "https://th.bing.com/th/id/OIP.MrtG6XlFi957ajHp_laR1AHaE8?pid=ImgDet&rs=1",
+          },
+        ],
+        food: [],
+        sleep: [
+          {
+            coordinates: "",
+            name: "",
+            description: "",
+            checkin: "16-08-2023",
+            checkout: "17-08-2023",
+          },
+        ],
+      },
+      {
+        destination: "Abbazia di Mont-Saint-Michel",
+        cover:
+          "https://viaggiandonellabellezza.altervista.org/wp-content/uploads/2018/01/montsaint-1.jpg",
+        pointsofinterest: [
+          {
+            coordinates: "48.63199334601681, -1.5079274281247257",
+            name: "Abbazia di Mont-Saint-Michel",
+            description: "",
+            cover:
+              "https://viaggiandonellabellezza.altervista.org/wp-content/uploads/2018/01/montsaint-1.jpg",
+          },
+        ],
+        food: [],
+        sleep: [
+          {
+            coordinates: "",
+            name: "",
+            description: "",
+            checkin: "16-08-2023",
+            checkout: "17-08-2023",
+          },
+        ],
+      },
     ],
   },
 ];
