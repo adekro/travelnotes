@@ -32,9 +32,16 @@ const Layout = () => {
     <div className={classes.content}>
       <Header />
       <div className={classes.contentbody}>
-        <div className={classes.side}>
-          <Side onNew={newhandler} travels={travels} onSelect={selecthandler} />
-        </div>
+        {!travel && (
+          <div className={classes.side}>
+            <Side
+              onNew={newhandler}
+              travels={travels}
+              onSelect={selecthandler}
+            />
+          </div>
+        )}
+
         <div className={classes.dashboard}>
           <Dashboard travel={travel} />
         </div>

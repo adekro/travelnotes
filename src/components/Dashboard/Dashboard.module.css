@@ -13,8 +13,29 @@
     max-width: 300px;
     cursor: pointer;
 }
+.loacationcardsel{
+    background-color: white;
+    box-shadow: 5px 5px 5px #ccc;
+    width: 30%;
+    height: 5vh;
+    min-width: 150px;
+    max-width: 150px;
+    cursor: pointer;
+    display: flex;
+}
 .loacationcardimg{
     width: 100%;
     border-radius: 7px;
     
+}
+.loacationcardsel .loacationcardimg{
+    width: 40px;
+}
+.loacationcardsel h4{
+    margin: 0px;
+    padding: 5px;
+    font-size: calc(8px + 1vh);
+}
+.actived{
+    background-color: lavender;
 }

@@ -5,6 +5,8 @@ const Dashboard = ({ travel }) => {
   const [selLocation, setSelLocation] = useState(null);
   const [location, setLocation] = useState(null);
 
+  const cls = [classes.loacationcard, location ? classes.loacationcardsel : ""];
+
   const cardClickHandler = (idStage) => {
     setSelLocation(idStage);
     console.log("ctravel");
@@ -32,7 +34,11 @@ const Dashboard = ({ travel }) => {
                 <Card
                   onClick={cardClickHandler}
                   idcard={item.destination}
-                  className={classes.loacationcard}
+                  className={
+                    cls.join(" ") +
+                    " " +
+                    (selLocation === item.destination ? classes.actived : "")
+                  }
                 >
                   <img
                     src={item.cover}
