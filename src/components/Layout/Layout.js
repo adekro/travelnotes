@@ -41,10 +41,11 @@ const Layout = () => {
             />
           </div>
         )}
-
-        <div className={classes.dashboard}>
-          <Dashboard travel={travel} />
-        </div>
+        {travel && (
+          <div className={classes.dashboard}>
+            <Dashboard travel={travel} />
+          </div>
+        )}
       </div>
       {isNew && (
         <MessageModal
