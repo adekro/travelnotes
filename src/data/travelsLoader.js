@@ -255,44 +255,6 @@ const mockData = [
           "https://th.bing.com/th/id/OIP.omrYekXL_fU6owXBRHFabAHaFO?pid=ImgDet&rs=1",
         pointsofinterest: [
           {
-            coordinates: "47.90193048967425, 1.9096506769980752",
-            name: "Cattedrale di Notre-Dame",
-            description: "",
-            cover:
-              "https://th.bing.com/th/id/OIP.LF8jWUb7F6QpLX_II6R3LwHaJQ?pid=ImgDet&rs=1",
-          },
-          {
-            coordinates: "47.90280143119411, 1.904363879245337",
-            name: "Palazzo di Giustizia",
-            description: "con Statue de Jeanne d'Arc",
-            cover:
-              "https://www.tropicalspirit.it/blog/wp-content/uploads/2019/11/Lione-768x510.jpg",
-          },
-          {
-            coordinates: "47.90107163021511, 1.9025955987683119",
-            name: "Rue du Gros Horloge",
-            description: "",
-            cover:
-              "https://www.franciaturismo.net/wp-content/uploads/sites/4/normandia-rouen-via-grande-orologio.jpg",
-          },
-        ],
-        food: [],
-        sleep: [
-          {
-            coordinates: "",
-            name: "",
-            description: "",
-            checkin: "16-08-2023",
-            checkout: "17-08-2023",
-          },
-        ],
-      },
-      {
-        destination: "Rouen",
-        cover:
-          "https://th.bing.com/th/id/OIP.omrYekXL_fU6owXBRHFabAHaFO?pid=ImgDet&rs=1",
-        pointsofinterest: [
-          {
             coordinates: "49.44143648229627, 1.0942589377615777",
             name: "Cattedrale di Notre-Dame",
             description: "",
