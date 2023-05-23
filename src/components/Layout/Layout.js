@@ -11,6 +11,7 @@ const Layout = () => {
   const [isNew, setIsNew] = useState(false);
   const [selTravel, setSelTravel] = useState();
   const [travel, setTravel] = useState();
+  const [view, setView] = useState(true);
 
   const { travels } = useTravels();
 
@@ -28,9 +29,12 @@ const Layout = () => {
     };
     setTravel(ctravel);
   };
+  const viewHandler = (view) => {
+    setView(view);
+  };
   return (
     <div className={classes.content}>
-      <Header />
+      <Header travels={travels} onSelect={selecthandler} onView={viewHandler} />
       <div className={classes.contentbody}>
         {!travel && (
           <div className={classes.side}>
@@ -43,7 +47,7 @@ const Layout = () => {
         )}
         {travel && (
           <div className={classes.dashboard}>
-            <Dashboard travel={travel} />
+            <Dashboard travel={travel} view={view} />
           </div>
         )}
       </div>
