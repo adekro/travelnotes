@@ -11,9 +11,9 @@ const Side = ({ onNew, travels, onSelect }) => {
   };
   return (
     <Card className={classes.side}>
-      <Button onClick={onClickHandler} className={classes.button}>
+      {/*       <Button onClick={onClickHandler} className={classes.button}>
         New
-      </Button>
+      </Button> */}
 
       {travels &&
         travels.map((item) => {
