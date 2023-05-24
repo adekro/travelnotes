@@ -1,5 +1,7 @@
 .headercontent{
     min-height: 8vh;
+    display: flex;
+    justify-content: space-around;
 }
 .header{
    height: 8vh;
@@ -10,4 +12,39 @@
     width: 15vh;
     max-width: 70px;
     min-width: 40px;
+}
+.button{
+    background-color: transparent !important;
+}
+
+.icons{
+    width: 4vh;
+}
+.travelmenubk{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+.travelmenu{
+    max-width: 250px;
+    width: 50vw;
+    height: 100vh;
+    background-color: #7077c2;
+    position: fixed;
+    top: 0vh;
+    left: 1vw;
+    display: flex;
+    flex-direction: column;
+}
+.contentclose{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.closebutton{
+    width: 50px;
 }
