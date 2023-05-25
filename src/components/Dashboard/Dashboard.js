@@ -16,8 +16,6 @@ const Dashboard = ({ travel, view }) => {
       ...travel.stages.find((item) => item.destination === idStage),
     };
 
-    console.log(ctravel);
-
     setLocation(ctravel);
   };
 
