@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "../Card/Card";
 import classes from "./Dashboard.module.css";
+import Schedule from "../Schedule/Schedule";
 const Dashboard = ({ travel, view }) => {
   const [selLocation, setSelLocation] = useState(null);
   const [location, setLocation] = useState(null);
@@ -22,7 +23,7 @@ const Dashboard = ({ travel, view }) => {
 
   return (
     <Card className={classes.dashboard}>
-      {!view && <label>Schedule</label>}
+      {!view && <Schedule list={travel.trip} />}
       {view && travel && (
         <>
           <div className={classes.dashboardhead}>
