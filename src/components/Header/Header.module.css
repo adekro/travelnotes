@@ -13,8 +13,13 @@
     max-width: 70px;
     min-width: 40px;
 }
-.button{
+.headerbutton{
     background-color: transparent !important;
+    padding: 0 !important;
+    display: flex;
+}
+.headerbutton:hover{
+    border:1px solid transparent;
 }
 
 .icons{

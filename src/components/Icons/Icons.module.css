@@ -1,0 +1,30 @@
+.color_white{
+    filter:invert(100%);
+}
+.color_black{
+    
+}
+.color_green{
+    filter:invert(48%) sepia(79%) saturate(8476%) hue-rotate(90deg);
+}
+.color_orange{
+    filter:invert(48%) sepia(79%) saturate(2476%);
+}
+.color_red{
+    filter: invert(48%) sepia(79%) saturate(5500%);
+}
+.color_blue{
+    filter: invert(48%) sepia(79%) saturate(10000%) hue-rotate(200deg);
+}
+.color_lilla{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(210deg);
+}
+.color_rosa{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(290deg);
+}
+.color_giallo{
+    filter: invert(88%) sepia(79%) saturate(5500%);
+}
+.color_salmone{
+    filter: invert(88%) sepia(79%) saturate(2476%) hue-rotate(290deg);
+}

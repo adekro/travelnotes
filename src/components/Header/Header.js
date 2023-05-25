@@ -28,8 +28,12 @@ const Header = ({ travels, onSelect, onView }) => {
   return (
     <>
       <Card className={classes.headercontent}>
-        <Button onClick={travelmenuhandler} className={classes.button}>
-          <Icons src="/icons/bars-solid.svg" className={classes.icons} />
+        <Button onClick={travelmenuhandler} className={classes.headerbutton}>
+          <Icons
+            src="/icons/bars-solid.svg"
+            className={classes.icons}
+            color={"lilla"}
+          />
         </Button>
         <div className={classes.header}>
           <img src="/logo192.png" alt="" />
