@@ -18,6 +18,7 @@
     overflow: hidden;
     padding-top: 1vh;
     padding-bottom: 1vh;
+    color: var(--primary-color);
     
     
     border-bottom: 1px #7077c2 solid;
@@ -33,6 +34,11 @@
 .startarrivetimecontent{
     display: flex;
     justify-content: end;
+}
+.startarrive a{
+    text-decoration: none;
+    color: var(--primary-color);
+    
 }
 .startarrive label{
     font-weight: 600;
