@@ -4,7 +4,11 @@ import Icons from "../Icons/Icons";
 const ScheduleItemUtility = ({ icon, color, description }) => {
   return (
     <div className={classes.utilityitem}>
-      <Icons src={icon} color={color ? color : "black"} />
+      <Icons
+        src={icon}
+        color={color ? color : "black"}
+        className={classes.icone}
+      />
       <label>{description ? description : "-"}</label>
     </div>
   );

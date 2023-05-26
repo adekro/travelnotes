@@ -1,0 +1,71 @@
+.scheduleitem{
+    display: flex;
+    width: 50vw;
+    height: 30vh;
+    background-color: white;
+    flex-direction: column;
+}
+.icone{
+    width: 20px;
+}
+.startarrive{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 10vh;
+    border-bottom: 1px #7077c2 solid;
+    overflow: hidden;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    
+    
+    border-bottom: 1px #7077c2 solid;
+}
+.startarriveall{
+    flex-basis: 40%;
+    overflow: scroll;
+}
+.startarrivecity{
+    display: flex;
+    justify-content: center;
+}
+.startarrivetimecontent{
+    display: flex;
+    justify-content: end;
+}
+.startarrive label{
+    font-weight: 600;
+    padding: 1vh;
+    
+}
+.startarrivetime{
+    font-size: 12px;
+
+}
+.utility{
+    display: flex;
+    padding: 2vh;
+}
+.utilityitem{
+    flex-basis: 25%;
+}
+.scheduledate{
+    width: 100px;
+    height: 100px;
+    color: #7077c2;
+    position: relative;
+    border: #7077c2 solid 1px;
+    border-radius: 7px;
+}
+.scheduledateday{
+    font-size: calc(20px + 1vh);
+    font-weight: 600;
+}
+.scheduledatemonth{
+    font-size: calc(5px + 1vh);
+    font-weight: 600;
+}
+.scheduledateyear{
+    font-size: calc(5px + 1vh);
+    font-weight: 600;
+}
