@@ -565,7 +565,8 @@ const mockData = [
           {
             coordinates: "48.63199334601681, -1.5079274281247257",
             name: "Abbazia di Mont-Saint-Michel",
-            description: "",
+            description:
+              "Controllare gli orari della marea il 19 e il 20 sono buoni",
             cover:
               "https://viaggiandonellabellezza.altervista.org/wp-content/uploads/2018/01/montsaint-1.jpg",
           },
