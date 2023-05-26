@@ -40,14 +40,16 @@ const ScheduleItem = ({
           className={classes.icone}
         />
         <div className={classes.startarriveall}>
-          <div className={classes.startarrivecity}>
-            <Icons
-              src={"/icons/flag-checkered-solid.svg"}
-              color={"lilla"}
-              className={classes.icone}
-            />
-            <label className={classes.startarrivelabel}>{arrive}</label>
-          </div>
+          <a href={"geo:" + arrivecoords}>
+            <div className={classes.startarrivecity}>
+              <Icons
+                src={"/icons/flag-checkered-solid.svg"}
+                color={"lilla"}
+                className={classes.icone}
+              />
+              <label className={classes.startarrivelabel}>{arrive}</label>
+            </div>
+          </a>
           <div className={classes.startarrivetimecontent}>
             <label className={classes.startarrivetime}>{arrivetime}</label>
           </div>
