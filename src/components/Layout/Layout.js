@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import classes from "./Layout.module.css";
 import Header from "../Header/Header";
 import Side from "../Side/Side";
@@ -13,7 +13,15 @@ const Layout = () => {
   const [travel, setTravel] = useState();
   const [view, setView] = useState(true);
 
-  const { travels } = useTravels();
+  const { travels, addSchedule, removeSchedule } = useTravels();
+
+  const addScheduleHandler = useCallback((newSchedule) => {
+    addSchedule(newSchedule);
+  }, []);
+
+  const removeScheduleHandler = useCallback((id) => {
+    removeSchedule(id);
+  }, []);
 
   const newhandler = () => {
     setIsNew(true);

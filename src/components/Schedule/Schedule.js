@@ -1,5 +1,6 @@
 import classes from "./Schedule.module.css";
 import ScheduleItem from "./ScheduleItem";
+
 const Schedule = ({ list }) => {
   console.log(list);
   return (

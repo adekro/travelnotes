@@ -6,13 +6,39 @@ const useTravels = () => {
   const [travels, setTravels] = useState([]);
 
   useEffect(() => {
-    travelLoader.init();
+    if (!travelLoader.getItems()) {
+      travelLoader.init();
+    }
+    setTravels(travelLoader.getItems());
+  }, []);
+
+  const reloadTravel = useCallback(() => {
     setTravels(travelLoader.getItems());
   }, []);
 
   const addTravel = useCallback((newTravel) => {
     setTravels((previousTravels) => {
-      const updated = previousTravels.concat(newTravel);
+      const newFieldWithId = newTravel.id
+        ? newTravel
+        : { ...newTravel, id: `${new Date().getTime()}` };
+      const updated = previousTravels.concat(newFieldWithId);
+
+      travelLoader.storeItems(updated);
+
+      return updated;
+    });
+  }, []);
+
+  const addSchedule = useCallback((idTravel, newSchedule) => {
+    setTravels((previousTravels) => {
+      const newFieldWithId = newSchedule.id
+        ? newSchedule
+        : { ...newSchedule, id: `${new Date().getTime()}` };
+      const updated = previousTravels
+        .find((travel) => travel.id === idTravel)
+        .trip.concat(newFieldWithId);
+
+      travelLoader.storeItems(updated);
 
       return updated;
     });
@@ -22,25 +48,34 @@ const useTravels = () => {
     setTravels((previousTravels) => {
       const updated = previousTravels.filter((travel) => travel.id !== id);
 
+      travelLoader.storeItems(updated);
+
       return updated;
     });
   }, []);
 
   const updateTravel = useCallback((id, updatedTravel) => {
     setTravels((previousTravels) => {
-      const farmlandToUpdate = {
+      const travelToUpdate = {
         ...previousTravels.find((travel) => travel.id === id),
         ...updatedTravel,
       };
       const updated = previousTravels.map((travel) =>
-        travel.id === id ? farmlandToUpdate : travel
+        travel.id === id ? travelToUpdate : travel
       );
 
       return updated;
     });
   }, []);
 
-  return { travels, addTravel, removeTravel, updateTravel };
+  return {
+    travels,
+    addTravel,
+    addSchedule,
+    removeTravel,
+    updateTravel,
+    reloadTravel,
+  };
 };
 
 export default useTravels;
