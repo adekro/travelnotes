@@ -1,8 +1,9 @@
+import React, { useState } from "react";
 import Icons from "../Icons/Icons";
 import { Card } from "adekroui";
 import classes from "./Schedule.module.css";
 import ScheduleItemUtility from "./ScheduleItemUtility";
-import ScheduleDate from "./ScheduleDate";
+import { formatDate } from "../../lib/api";
 const ScheduleItem = ({
   id,
   start,
@@ -18,18 +19,49 @@ const ScheduleItem = ({
   petrol,
   overnight,
 }) => {
-  const modifyItem = () => {};
+  const [isModify, setIsModify] = useState(false);
+
+  const modifyItem = () => {
+    setIsModify((prevMod) => {
+      return !prevMod;
+    });
+  };
 
   return (
     <Card className={classes.scheduleitem}>
       <div className={classes.topchedule}>
-        <ScheduleDate date={startdate} />
+        <div className={classes.scheduledate}>
+          {isModify && <input type="date" value={startdate} />}
+          {!isModify && (
+            <>
+              <div className={classes.scheduledateday}>
+                {formatDate(new Date(startdate), "dd")}
+              </div>
+              <div className={classes.scheduledatemonth}>
+                {formatDate(new Date(startdate), "MMMM")}
+              </div>
+              <div className={classes.scheduledateyear}>
+                {formatDate(new Date(startdate), "yyyy")}
+              </div>
+            </>
+          )}
+        </div>
+
         <div className={classes.moditem} onClick={modifyItem}>
-          <Icons
-            src={"/icons/pencil-solid.svg"}
-            color={"lilla"}
-            className={classes.icone}
-          />
+          {isModify && (
+            <Icons
+              src={"/icons/floppy-disk-solid.svg"}
+              color={"lilla"}
+              className={classes.icone}
+            />
+          )}
+          {!isModify && (
+            <Icons
+              src={"/icons/pencil-solid.svg"}
+              color={"lilla"}
+              className={classes.icone}
+            />
+          )}
         </div>
       </div>
       <div className={classes.startarrive}>
@@ -40,10 +72,16 @@ const ScheduleItem = ({
               color={"lilla"}
               className={classes.icone}
             />
-            <label className={classes.startarrivelabel}>{start}</label>
+            {isModify && <input type="text" value={start} />}
+            {!isModify && (
+              <label className={classes.startarrivelabel}>{start}</label>
+            )}
           </div>
           <div className={classes.startarrivetimecontent}>
-            <label className={classes.startarrivetime}>{starttime}</label>
+            {isModify && <input type="time" value={starttime} />}
+            {!isModify && (
+              <label className={classes.startarrivetime}>{starttime}</label>
+            )}
           </div>
         </div>
         <Icons
@@ -59,11 +97,24 @@ const ScheduleItem = ({
                 color={"lilla"}
                 className={classes.icone}
               />
-              <label className={classes.startarrivelabel}>{arrive}</label>
+              {isModify && <input type="text" value={arrive} />}
+              {isModify && (
+                <input
+                  type="text"
+                  value={arrivecoords}
+                  placeholder="coordinate"
+                />
+              )}
+              {!isModify && (
+                <label className={classes.startarrivelabel}>{arrive}</label>
+              )}
             </div>
           </a>
           <div className={classes.startarrivetimecontent}>
-            <label className={classes.startarrivetime}>{arrivetime}</label>
+            {isModify && <input type="time" value={arrivetime} />}
+            {!isModify && (
+              <label className={classes.startarrivetime}>{arrivetime}</label>
+            )}
           </div>
         </div>
       </div>
