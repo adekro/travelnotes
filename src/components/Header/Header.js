@@ -27,6 +27,7 @@ const Header = ({ travels, onSelect, onView }) => {
 
   return (
     <>
+      {isLocation && <></>}
       <Card className={classes.headercontent}>
         <Button onClick={travelmenuhandler} className={classes.headerbutton}>
           <Icons

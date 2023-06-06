@@ -4,6 +4,7 @@ import classes from "./Schedule.module.css";
 import ScheduleItemUtility from "./ScheduleItemUtility";
 import ScheduleDate from "./ScheduleDate";
 const ScheduleItem = ({
+  id,
   start,
   starttime,
   startdate,
@@ -17,9 +18,20 @@ const ScheduleItem = ({
   petrol,
   overnight,
 }) => {
+  const modifyItem = () => {};
+
   return (
     <Card className={classes.scheduleitem}>
-      <ScheduleDate date={startdate} />
+      <div className={classes.topchedule}>
+        <ScheduleDate date={startdate} />
+        <div className={classes.moditem} onClick={modifyItem}>
+          <Icons
+            src={"/icons/pencil-solid.svg"}
+            color={"lilla"}
+            className={classes.icone}
+          />
+        </div>
+      </div>
       <div className={classes.startarrive}>
         <div className={classes.startarriveall}>
           <div className={classes.startarrivecity}>

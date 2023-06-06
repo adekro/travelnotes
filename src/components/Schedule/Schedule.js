@@ -8,6 +8,8 @@ const Schedule = ({ list }) => {
         list.map((item) => {
           return (
             <ScheduleItem
+              key={item.id}
+              id={item.id}
               start={item.start}
               starttime={item.starttime}
               startdate={item.startdate}
