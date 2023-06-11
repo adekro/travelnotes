@@ -1,7 +1,7 @@
 export default (() => {
   const localStorageKeyName = "travels";
   const getItems = () => {
-    return JSON.parse(localStorage.getItem(localStorageKeyName) ?? {});
+    return JSON.parse(localStorage.getItem(localStorageKeyName) ?? null);
   };
   const storeItems = (travels) => {
     localStorage.setItem(localStorageKeyName, JSON.stringify(travels));
