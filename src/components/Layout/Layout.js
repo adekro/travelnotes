@@ -5,18 +5,15 @@ import Side from "../Side/Side";
 import Dashboard from "../Dashboard/Dashboard";
 import { MessageModal } from "adekroui";
 import useTravels from "../../hooks/useTravels";
-import travelsLoader from "../../data/travelsLoader";
-import stagestripLoader from "../../data/stagestripLoader";
-import useStagesTrip from "../../hooks/useStagesTrip";
 
 const Layout = () => {
   const [isNew, setIsNew] = useState(false);
   const [selTravel, setSelTravel] = useState();
   const [travel, setTravel] = useState();
   const [view, setView] = useState(true);
+  const [stage, setStage] = useState();
 
   const { travels, addSchedule, removeSchedule } = useTravels();
-  const { stagestrip } = useStagesTrip();
 
   const addScheduleHandler = useCallback((newSchedule) => {
     addSchedule(newSchedule);
@@ -32,11 +29,19 @@ const Layout = () => {
   const closeModal = () => {
     setIsNew(false);
   };
-  const selecthandler = (istravel) => {
+  const selecthandler = async (istravel) => {
     setSelTravel(istravel);
-    stagestripLoader.init();
-    const data = stagestripLoader.getItems();
-    setTravel(data);
+
+    const response = await fetch(
+      process.env.REACT_APP_SERVER_PHP + "getstagestrip/?travel_id=" + istravel
+    );
+    if (response.ok) {
+      let json = await response.json();
+      console.log("ss", json);
+      setStage(json);
+    } else {
+      alert("HTTP-Error: " + response.status);
+    }
   };
   const viewHandler = (view) => {
     setView(view);
@@ -56,7 +61,7 @@ const Layout = () => {
         )}
         {travel && (
           <div className={classes.dashboard}>
-            <Dashboard travel={travel} view={view} />
+            <Dashboard view={view} stage={stage} travel={travel} />
           </div>
         )}
       </div>
