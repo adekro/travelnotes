@@ -6,6 +6,8 @@ import Dashboard from "../Dashboard/Dashboard";
 import { MessageModal } from "adekroui";
 import useTravels from "../../hooks/useTravels";
 import travelsLoader from "../../data/travelsLoader";
+import stagestripLoader from "../../data/stagestripLoader";
+import useStagesTrip from "../../hooks/useStagesTrip";
 
 const Layout = () => {
   const [isNew, setIsNew] = useState(false);
@@ -14,6 +16,7 @@ const Layout = () => {
   const [view, setView] = useState(true);
 
   const { travels, addSchedule, removeSchedule } = useTravels();
+  const { stagestrip } = useStagesTrip();
 
   const addScheduleHandler = useCallback((newSchedule) => {
     addSchedule(newSchedule);
@@ -31,11 +34,9 @@ const Layout = () => {
   };
   const selecthandler = (istravel) => {
     setSelTravel(istravel);
-    const data = travelsLoader.getItems();
-    const ctravel = {
-      ...data.find((travel) => travel.id === istravel),
-    };
-    setTravel(ctravel);
+    stagestripLoader.init();
+    const data = stagestripLoader.getItems();
+    setTravel(data);
   };
   const viewHandler = (view) => {
     setView(view);
