@@ -97,31 +97,6 @@ const Dashboard = ({ travel, view }) => {
               })}
             </div>
           </div>
-          <div>
-            <h4>Sleep</h4>
-            <div className={classes.content}>
-              {location.sleep.map((item) => {
-                return (
-                  <Card className={classes.loacationcard} key={item.id}>
-                    <img
-                      src={item.cover}
-                      alt=""
-                      className={classes.loacationcardimg}
-                    />
-                    <h4>{item.name}</h4>
-                    <h4>{item.description}</h4>
-                    {item.coordinates && (
-                      <a href={"geo:" + item.coordinates} target="_blank">
-                        Click here for map
-                      </a>
-                    )}
-                    <label>{item.checkin}</label>
-                    <label>{item.checkout}</label>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
         </div>
       )}
     </Card>

@@ -6,14 +6,21 @@ const Side = ({ onNew, travels, onSelect }) => {
   const onClickHandler = () => {
     onNew();
   };
+  const onViewStagesHandler = () => {
+    console.log("view stages");
+  };
   const travelSelHandler = (evt) => {
     onSelect(evt.target.children[0].attributes.travelid.value);
   };
   return (
     <Card className={classes.side}>
-      {/*       <Button onClick={onClickHandler} className={classes.button}>
+      <Button onClick={onClickHandler} className={classes.button}>
         New
-      </Button> */}
+      </Button>
+
+      <Button onClick={onViewStagesHandler} className={classes.button}>
+        view all stages
+      </Button>
 
       {travels &&
         travels.map((item) => {

@@ -6,8 +6,17 @@ export default (() => {
   const storeItems = (travels) => {
     localStorage.setItem(localStorageKeyName, JSON.stringify(travels));
   };
-  const init = () => {
-    storeItems(mockData);
+  const init = async () => {
+    const response = await fetch(
+      process.env.REACT_APP_SERVER_PHP + "gettravels/"
+    );
+    if (response.ok) {
+      let json = await response.json();
+      storeItems(json);
+    } else {
+      alert("HTTP-Error: " + response.status);
+      storeItems(mockData);
+    }
   };
 
   return {
