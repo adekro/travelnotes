@@ -1,10 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import classes from "./Dashboard.module.css";
 import Schedule from "../Schedule/Schedule";
-const Dashboard = ({ travel, view }) => {
+const Dashboard = ({ view, travel }) => {
   const [selLocation, setSelLocation] = useState(null);
   const [location, setLocation] = useState(null);
+  const [stages, setStages] = useState(null);
+  const [trips, setTrips] = useState(null);
+  const [pointsofinterest, setPointsofinterest] = useState(null);
+  const [food, setFood] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      process.env.REACT_APP_SERVER_PHP + "getstagestrip/?travel_id=" + travel.id
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert("HTTP-Error: " + response.status);
+        }
+      })
+      .then((data) => {
+        setStages(data);
+      });
+
+    fetch(process.env.REACT_APP_SERVER_PHP + "gettrips/?travel_id=" + travel.id)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert("HTTP-Error: " + response.status);
+        }
+      })
+      .then((data) => {
+        setTrips(data);
+      });
+  }, []);
 
   const cls = [classes.loacationcard, location ? classes.loacationcardsel : ""];
 
@@ -21,15 +53,15 @@ const Dashboard = ({ travel, view }) => {
 
   return (
     <Card className={classes.dashboard}>
-      {!view && <Schedule list={travel.trip} />}
-      {view && travel && (
+      {!view && <Schedule list={trips} />}
+      {view && stages && (
         <>
           <div className={classes.dashboardhead}>
             <h2>{travel.nation}</h2>
             <h4>{travel.name}</h4>
           </div>
           <div className={classes.content}>
-            {travel.stages.map((item) => {
+            {stages.map((item) => {
               return (
                 <Card
                   onClick={cardClickHandler}
@@ -52,12 +84,12 @@ const Dashboard = ({ travel, view }) => {
           </div>
         </>
       )}
-      {view && location && (
+      {view && pointsofinterest && (
         <div>
           <div>
             <h4>Points of interest</h4>
             <div className={classes.content}>
-              {location.pointsofinterest.map((item) => {
+              {pointsofinterest.map((item) => {
                 return (
                   <Card className={classes.loacationcard} key={item.id}>
                     <img
@@ -77,7 +109,7 @@ const Dashboard = ({ travel, view }) => {
           <div>
             <h4>Food</h4>
             <div className={classes.content}>
-              {location.food.map((item) => {
+              {food.map((item) => {
                 return (
                   <Card className={classes.loacationcard} key={item.id}>
                     <img

@@ -11,7 +11,8 @@ const Layout = () => {
   const [selTravel, setSelTravel] = useState();
   const [travel, setTravel] = useState();
   const [view, setView] = useState(true);
-  const [stage, setStage] = useState();
+  const [stage, setStage] = useState(null);
+  const [trips, setTrips] = useState(null);
 
   const { travels, addSchedule, removeSchedule } = useTravels();
 
@@ -32,16 +33,10 @@ const Layout = () => {
   const selecthandler = async (istravel) => {
     setSelTravel(istravel);
 
-    const response = await fetch(
-      process.env.REACT_APP_SERVER_PHP + "getstagestrip/?travel_id=" + istravel
-    );
-    if (response.ok) {
-      let json = await response.json();
-      console.log("ss", json);
-      setStage(json);
-    } else {
-      alert("HTTP-Error: " + response.status);
-    }
+    const ctravel = {
+      ...travels.find((travel) => travel.id === istravel),
+    };
+    setTravel(ctravel);
   };
   const viewHandler = (view) => {
     setView(view);
@@ -61,7 +56,7 @@ const Layout = () => {
         )}
         {travel && (
           <div className={classes.dashboard}>
-            <Dashboard view={view} stage={stage} travel={travel} />
+            <Dashboard view={view} travel={travel} />
           </div>
         )}
       </div>
