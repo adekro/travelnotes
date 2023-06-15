@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import classes from "./Dashboard.module.css";
 import Schedule from "../Schedule/Schedule";
+import Stage from "../Stage/Stage";
 const Dashboard = ({ view, travel }) => {
   const [selLocation, setSelLocation] = useState(null);
   const [location, setLocation] = useState(null);
   const [stages, setStages] = useState(null);
   const [trips, setTrips] = useState(null);
-  const [pointsofinterest, setPointsofinterest] = useState(null);
-  const [food, setFood] = useState(null);
 
   useEffect(() => {
     fetch(
@@ -41,14 +40,8 @@ const Dashboard = ({ view, travel }) => {
   const cls = [classes.loacationcard, location ? classes.loacationcardsel : ""];
 
   const cardClickHandler = (idStage) => {
+    console.log(idStage);
     setSelLocation(idStage);
-    console.log("ctravel");
-
-    const ctravel = {
-      ...travel.stages.find((item) => item.destination === idStage),
-    };
-
-    setLocation(ctravel);
   };
 
   return (
@@ -65,72 +58,22 @@ const Dashboard = ({ view, travel }) => {
               return (
                 <Card
                   onClick={cardClickHandler}
-                  idcard={item.destination}
-                  className={
-                    cls.join(" ") +
-                    " " +
-                    (selLocation === item.destination ? classes.actived : "")
-                  }
+                  idcard={item.id}
+                  className={cls.join(" ")}
                 >
                   <img
                     src={item.cover}
                     alt=""
                     className={classes.loacationcardimg}
                   />
-                  <h4>{item.destination}</h4>
+                  <h4>{item.name}</h4>
                 </Card>
               );
             })}
           </div>
         </>
       )}
-      {view && pointsofinterest && (
-        <div>
-          <div>
-            <h4>Points of interest</h4>
-            <div className={classes.content}>
-              {pointsofinterest.map((item) => {
-                return (
-                  <Card className={classes.loacationcard} key={item.id}>
-                    <img
-                      src={item.cover}
-                      alt=""
-                      className={classes.loacationcardimg}
-                    />
-                    <h4>{item.name}</h4>
-                    <a href={"geo:" + item.coordinates} target="_blank">
-                      Click here for map
-                    </a>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-          <div>
-            <h4>Food</h4>
-            <div className={classes.content}>
-              {food.map((item) => {
-                return (
-                  <Card className={classes.loacationcard} key={item.id}>
-                    <img
-                      src={item.cover}
-                      alt=""
-                      className={classes.loacationcardimg}
-                    />
-                    <h4>{item.name}</h4>
-                    {item.coordinates && (
-                      <a href={"geo:" + item.coordinates} target="_blank">
-                        Click here for map
-                      </a>
-                    )}
-                    {item.restaurant && <label>{item.restaurant}</label>}
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
+      {view && selLocation && <Stage stage_id={selLocation} />}
     </Card>
   );
 };
