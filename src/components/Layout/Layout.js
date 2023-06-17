@@ -1,18 +1,18 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useSyncExternalStore } from "react";
 import classes from "./Layout.module.css";
 import Header from "../Header/Header";
 import Side from "../Side/Side";
 import Dashboard from "../Dashboard/Dashboard";
 import { MessageModal } from "adekroui";
 import useTravels from "../../hooks/useTravels";
+import StageList from "../Stage/StageList";
 
 const Layout = () => {
   const [isNew, setIsNew] = useState(false);
   const [selTravel, setSelTravel] = useState();
   const [travel, setTravel] = useState();
   const [view, setView] = useState(true);
-  const [stage, setStage] = useState(null);
-  const [trips, setTrips] = useState(null);
+  const [viewStages, setViewStages] = useState(false);
 
   const { travels, addSchedule, removeSchedule } = useTravels();
 
@@ -23,6 +23,9 @@ const Layout = () => {
   const removeScheduleHandler = useCallback((id) => {
     removeSchedule(id);
   }, []);
+  const viewStagehandler = () => {
+    setViewStages(true);
+  };
 
   const newhandler = () => {
     setIsNew(true);
@@ -45,16 +48,18 @@ const Layout = () => {
     <div className={classes.content}>
       <Header travels={travels} onSelect={selecthandler} onView={viewHandler} />
       <div className={classes.contentbody}>
-        {!travel && (
+        {viewStages && <StageList />}
+        {!viewStages && !travel && (
           <div className={classes.side}>
             <Side
               onNew={newhandler}
               travels={travels}
               onSelect={selecthandler}
+              viewStage={viewStagehandler}
             />
           </div>
         )}
-        {travel && (
+        {!viewStages && travel && (
           <div className={classes.dashboard}>
             <Dashboard view={view} travel={travel} />
           </div>

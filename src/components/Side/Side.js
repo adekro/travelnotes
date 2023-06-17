@@ -2,12 +2,12 @@ import React from "react";
 import { Button } from "adekroui";
 import Card from "../Card/Card";
 import classes from "./Side.module.css";
-const Side = ({ onNew, travels, onSelect }) => {
+const Side = ({ onNew, travels, onSelect, viewStage }) => {
   const onClickHandler = () => {
     onNew();
   };
   const onViewStagesHandler = () => {
-    console.log("view stages");
+    viewStage();
   };
   const travelSelHandler = (evt) => {
     onSelect(evt.target.children[0].attributes.travelid.value);
