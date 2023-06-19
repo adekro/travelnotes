@@ -3,7 +3,7 @@ import classes from "./Layout.module.css";
 import Header from "../Header/Header";
 import Side from "../Side/Side";
 import Dashboard from "../Dashboard/Dashboard";
-import { MessageModal } from "adekroui";
+import { Button, MessageModal } from "adekroui";
 import useTravels from "../../hooks/useTravels";
 import StageList from "../Stage/StageList";
 
@@ -44,11 +44,19 @@ const Layout = () => {
   const viewHandler = (view) => {
     setView(view);
   };
+  const returnHome = () => {
+    setViewStages(false);
+  };
   return (
     <div className={classes.content}>
       <Header travels={travels} onSelect={selecthandler} onView={viewHandler} />
       <div className={classes.contentbody}>
-        {viewStages && <StageList />}
+        {viewStages && (
+          <div>
+            <Button onClick={returnHome}>X</Button>
+            <StageList />
+          </div>
+        )}
         {!viewStages && !travel && (
           <div className={classes.side}>
             <Side

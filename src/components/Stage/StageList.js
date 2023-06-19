@@ -16,10 +16,13 @@ const StageList = () => {
       .then((data) => {
         setStage(data);
       });
-  }, []);
+  }, [stage]);
 
   const newStagehandler = () => {
     setFormDati(true);
+  };
+  const closehandler = () => {
+    setFormDati(false);
   };
   const saveHandler = (evt) => {
     evt.preventDefault();
@@ -48,6 +51,7 @@ const StageList = () => {
         })}
       {formdati && (
         <Card>
+          <Button onClick={closehandler}>X</Button>
           <form onSubmit={saveHandler}>
             <Input label="name" id="name" />
             <Input label="cover" id="cover" />
