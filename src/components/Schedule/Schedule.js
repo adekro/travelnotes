@@ -20,7 +20,7 @@ const Schedule = ({ list }) => {
   };
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_SERVER_PHP + "getstages")
+    fetch(process.env.REACT_APP_SERVER_PHP + "getstages/?v=1")
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -35,7 +35,7 @@ const Schedule = ({ list }) => {
 
   return (
     <div className={classes.schedulecontent}>
-      {newschedule && (
+      {newschedule && stages && (
         <div>
           <Button onClick={closehandler}>X</Button>
           <form onSubmit={saveHandler}>
