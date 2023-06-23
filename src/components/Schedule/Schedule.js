@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Schedule.module.css";
 import ScheduleItem from "./ScheduleItem";
-import { Button, Input } from "adekroui";
+import { Button } from "adekroui";
+import ScheduleAdd from "./ScheduleAdd";
 
 const Schedule = ({ list }) => {
   const [newschedule, setNewSchedule] = useState(false);
@@ -36,17 +37,11 @@ const Schedule = ({ list }) => {
   return (
     <div className={classes.schedulecontent}>
       {newschedule && stages && (
-        <div>
-          <Button onClick={closehandler}>X</Button>
-          <form onSubmit={saveHandler}>
-            <Input label="start" id="start" list={stages} />
-            <Input label="date" type="date" id="startdate" />
-            <Input label="time" type="time" id="starttime" />
-            <Input label="arrive" id="arrive" list={stages} />
-            <Input label="time" type="time" id="arrivetime" />
-            <Button type="submit">Save</Button>
-          </form>
-        </div>
+        <ScheduleAdd
+          list={stages}
+          onClose={closehandler}
+          onSubmit={saveHandler}
+        />
       )}
       {!newschedule && (
         <div>
