@@ -16,7 +16,7 @@ const StageList = () => {
       .then((data) => {
         setStage(data);
       });
-  }, [stage]);
+  }, []);
 
   const newStagehandler = () => {
     setFormDati(true);
