@@ -8,7 +8,11 @@ export default (() => {
   };
   const init = async (travel_id) => {
     const response = await fetch(
-      process.env.REACT_APP_SERVER_PHP + "getstagestrip/travel_id=" + travel_id
+      process.env.REACT_APP_SERVER_PHP +
+        "getstagestrip/index.php?travel_id=" +
+        travel_id +
+        "&rnd=" +
+        Math.random()
     );
     if (response.ok) {
       let json = await response.json();

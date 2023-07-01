@@ -5,7 +5,12 @@ const StageList = () => {
   const [stage, setStage] = useState(null);
   const [formdati, setFormDati] = useState(false);
   useEffect(() => {
-    fetch(process.env.REACT_APP_SERVER_PHP + "getstages")
+    fetch(
+      process.env.REACT_APP_SERVER_PHP +
+        "getstages/index.php?v=1" +
+        "&rnd=" +
+        Math.random()
+    )
       .then((response) => {
         if (response.ok) {
           return response.json();

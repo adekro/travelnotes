@@ -21,7 +21,12 @@ const Schedule = ({ list }) => {
   };
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_SERVER_PHP + "getstages/?v=1")
+    fetch(
+      process.env.REACT_APP_SERVER_PHP +
+        "getstages/index.php?v=1" +
+        "&rnd=" +
+        Math.random()
+    )
       .then((response) => {
         if (response.ok) {
           return response.json();

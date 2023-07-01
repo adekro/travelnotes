@@ -11,7 +11,11 @@ const Dashboard = ({ view, travel }) => {
 
   useEffect(() => {
     fetch(
-      process.env.REACT_APP_SERVER_PHP + "getstagestrip/?travel_id=" + travel.id
+      process.env.REACT_APP_SERVER_PHP +
+        "getstagestrip/index.php?travel_id=" +
+        travel.id +
+        "&rnd=" +
+        Math.random()
     )
       .then((response) => {
         if (response.ok) {
@@ -24,7 +28,13 @@ const Dashboard = ({ view, travel }) => {
         setStages(data);
       });
 
-    fetch(process.env.REACT_APP_SERVER_PHP + "gettrips/?travel_id=" + travel.id)
+    fetch(
+      process.env.REACT_APP_SERVER_PHP +
+        "gettrips/index.php?travel_id=" +
+        travel.id +
+        "&rnd=" +
+        Math.random()
+    )
       .then((response) => {
         if (response.ok) {
           return response.json();

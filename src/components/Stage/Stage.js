@@ -10,7 +10,12 @@ const Stage = ({ stage_id }) => {
     fetch(
       process.env.REACT_APP_SERVER_PHP +
         "getpointsofinterest/?stage_id=" +
-        stage_id
+        stage_id +
+        "&rnd=" +
+        Math.random(),
+      {
+        mode: "no-cors",
+      }
     )
       .then((response) => {
         if (response.ok) {

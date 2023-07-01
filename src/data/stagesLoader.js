@@ -8,7 +8,10 @@ export default (() => {
   };
   const init = async () => {
     const response = await fetch(
-      process.env.REACT_APP_SERVER_PHP + "getstages/"
+      process.env.REACT_APP_SERVER_PHP +
+        "getstages/index.php?v=1" +
+        "&rnd=" +
+        Math.random()
     );
     if (response.ok) {
       let json = await response.json();
