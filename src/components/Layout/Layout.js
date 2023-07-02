@@ -9,8 +9,8 @@ import StageList from "../Stage/StageList";
 
 const Layout = () => {
   const [isNew, setIsNew] = useState(false);
-  const [selTravel, setSelTravel] = useState();
-  const [travel, setTravel] = useState();
+  const [selTravel, setSelTravel] = useState(null);
+  const [travel, setTravel] = useState(null);
   const [view, setView] = useState(true);
   const [viewStages, setViewStages] = useState(false);
 
@@ -47,9 +47,20 @@ const Layout = () => {
   const returnHome = () => {
     setViewStages(false);
   };
+  const indietrohandler = () => {
+    setSelTravel(null);
+    setViewStages(false);
+    setTravel(null);
+  };
   return (
     <div className={classes.content}>
-      <Header travels={travels} onSelect={selecthandler} onView={viewHandler} />
+      <Header
+        travels={travels}
+        onSelect={selecthandler}
+        onView={viewHandler}
+        switchlocation={!viewStages && !travel ? false : true}
+        onBack={indietrohandler}
+      />
       <div className={classes.contentbody}>
         {viewStages && (
           <div>

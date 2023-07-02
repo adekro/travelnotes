@@ -1,6 +1,6 @@
 import { Button, Card, Input } from "adekroui";
-import React, { useEffect, useState } from "react";
-import { postData } from "../../lib/api";
+import React, { useCallback, useEffect, useState } from "react";
+import { postData, postDataS } from "../../lib/api";
 const StageList = () => {
   const [stage, setStage] = useState(null);
   const [formdati, setFormDati] = useState(false);
@@ -29,7 +29,7 @@ const StageList = () => {
   const closehandler = () => {
     setFormDati(false);
   };
-  const saveHandler = (evt) => {
+  const saveHandler = useCallback((evt) => {
     evt.preventDefault();
     console.log(evt);
 
@@ -37,14 +37,20 @@ const StageList = () => {
     const cover = document.getElementById("cover").value;
     const coordinates = document.getElementById("coordinates").value;
 
-    /*     const response = postData(process.env.REACT_APP_SERVER_PHP + "poststages", {
-      id: 0,
-      name: name,
-      cover: cover,
-      coordinates: coordinates,
-    }); */
+    const response = postData(
+      process.env.REACT_APP_SERVER_PHP + "poststages/",
+      {
+        id: 0,
+        name: name,
+        cover: cover,
+        coordinates: coordinates,
+      },
+      "text"
+    );
+    setFormDati(false);
+  }, []);
 
-    var myHeaders = new Headers();
+  /*     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
@@ -66,10 +72,9 @@ const StageList = () => {
       .then((result) => {
         console.log(result);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => console.log("error", error)); */
 
-    //setFormDati(false);
-  };
+  //setFormDati(false);
 
   return (
     <>

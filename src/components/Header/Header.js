@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import { Button } from "adekroui";
 import Icons from "../Icons/Icons";
 import Switch from "../Switch/Switch";
-const Header = ({ travels, onSelect, onView }) => {
+const Header = ({ travels, onSelect, onView, switchlocation, onBack }) => {
   const [isOpenTravel, setIsOpenTravel] = useState(false);
   const [isLocation, setIsLocation] = useState(true);
 
@@ -25,6 +25,10 @@ const Header = ({ travels, onSelect, onView }) => {
     onView(state);
   };
 
+  const indietrohandler = () => {
+    onBack();
+  };
+
   return (
     <>
       {isLocation && <></>}
@@ -39,11 +43,16 @@ const Header = ({ travels, onSelect, onView }) => {
         <div className={classes.header}>
           <img src="/logo192.png" alt="" />
         </div>
-        <Switch
-          labelOn={"Location"}
-          labelOff={"Schedule"}
-          onSelect={viewerhandler}
-        />
+        {switchlocation && (
+          <>
+            <Switch
+              labelOn={"Location"}
+              labelOff={"Schedule"}
+              onSelect={viewerhandler}
+            />
+            <Button onClick={indietrohandler}>X</Button>
+          </>
+        )}
       </Card>
 
       {isOpenTravel && (

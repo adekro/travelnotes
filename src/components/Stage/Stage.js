@@ -12,10 +12,7 @@ const Stage = ({ stage_id }) => {
         "getpointsofinterest/?stage_id=" +
         stage_id +
         "&rnd=" +
-        Math.random(),
-      {
-        mode: "no-cors",
-      }
+        Math.random()
     )
       .then((response) => {
         if (response.ok) {
